@@ -1,0 +1,498 @@
+@media (max-width:2560px) {
+
+    .navbar {
+        width: 350px;
+    }
+}
+
+@media (max-width:1440px) {
+
+
+    .navbar {
+        width: 200px;
+        opacity: .5;
+    }
+
+    .mains {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+
+    }
+
+
+
+
+    .summaryContainer {
+
+        display: flex;
+
+        margin-top: 2rem;
+        gap: 2rem;
+    }
+
+    .box {
+
+
+        width: 300px;
+        height: 125px;
+
+    }
+
+    .table-title {
+        width: fit-content;
+        display: flex;
+
+        gap: 2rem;
+    }
+
+    .tableList {
+
+        gap: 3rem;
+    }
+
+    table {
+        display: flex;
+
+    }
+
+
+
+    .for-tr {
+
+        height: auto;
+    }
+
+    .form {
+
+        margin-right: 9rem;
+    }
+}
+
+
+@media (max-width:1440px) {
+
+
+
+    .headers {
+
+        display: block;
+
+    }
+
+
+
+    .list {
+        gap: 3rem;
+    }
+
+
+
+    .items a {
+        font-size: 15px;
+    }
+
+    .items svg {
+        width: 35px;
+        height: 35px;
+    }
+
+    .mains span {
+        font-size: 15px;
+    }
+
+    .summaryContainer {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+
+
+
+
+    .box {
+        width: 250px;
+        height: 100px
+    }
+
+    .table-title {
+        width: fit-content;
+        display: flex;
+        gap: 1rem;
+
+    }
+
+    .tableList {
+        font-size: medium;
+        width: fit-content;
+        gap: 2rem;
+
+    }
+
+    .tableList li a {
+        font-size: medium;
+        font-weight: 700;
+    }
+
+    .tableList h1 {
+        font-size: medium;
+    }
+
+    .for-th {
+        font-size: small;
+        font-weight: 900;
+        gap: 3rem;
+
+    }
+
+    .for-tr {
+        font-size: 12px;
+
+        gap: 3rem;
+
+    }
+
+    .filter {
+
+        margin-right: 0;
+    }
+
+    table {
+        display: flex;
+
+    }
+
+    .for-tr .btn {
+        gap: 1rem;
+
+    }
+
+    .for-tr .btn button {
+        font-size: small;
+    }
+}
+
+@media (max-width:1024px) {
+    .menu ion-icon {
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        color: white;
+    }
+
+    .header {
+        width: 50%;
+    }
+
+    .menu-icons {
+        margin-left: 4rem;
+        top: 0;
+    }
+
+    .mains span {
+        font-size: 12px;
+    }
+
+    .box .seemore svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .navbar {
+        height: 100%;
+    }
+
+}
+
+@media (max-width:768px) {
+    html {
+        font-size: 10px;
+    }
+
+    .navbar {
+        width: 150px;
+        opacity: .5;
+    }
+
+    .navbar .list {
+        gap: 10rem;
+    }
+
+
+    .menu ion-icon {
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        color: white;
+    }
+
+    .recharts-wrapper svg {
+
+        width: fit-content;
+        width: 300px;
+        height: 150px;
+    }
+
+
+
+    .box {
+        width: 190px;
+        height: 90px;
+    }
+
+    .seemore {
+
+        font-size: 3rem;
+    }
+
+    .table-title {
+        width: fit-content;
+        display: flex;
+        gap: 1rem;
+
+
+    }
+
+    .tableList {
+        font-size: medium;
+        width: fit-content;
+        gap: 1rem;
+
+    }
+
+    .tableList li a {
+        font-size: small;
+        font-weight: 400;
+    }
+
+    .tableList h1 {
+        font-size: small;
+    }
+
+    .for-th {
+        font-size: small;
+        font-weight: 600;
+        gap: 3rem;
+
+
+    }
+
+    .for-tr {
+        font-size: 10px;
+
+        gap: 2rem;
+
+    }
+
+    .for-tr .btn {
+        gap: 1rem;
+
+    }
+
+    .for-tr .btn button {
+        font-size: small;
+    }
+
+    .card1 {
+        background-color: aqua;
+        width: 40px;
+        height: 40px;
+    }
+
+    .card2 {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card3 {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card4 {
+        width: 40px;
+        height: 40px;
+
+    }
+
+    .card1 ion-icon {
+        width: 15px;
+        height: 15px;
+        margin-top: .2em;
+        margin-left: -.5em;
+    }
+
+    .card2 ion-icon {
+        width: 15px;
+        height: 15px;
+        margin-top: .2em;
+        margin-left: -.5em;
+    }
+
+    .card3 ion-icon {
+        width: 15px;
+        height: 15px;
+        margin-top: .2em;
+        margin-left: -.5em;
+    }
+
+    .card4 ion-icon {
+        width: 15px;
+        height: 15px;
+        margin-top: .2em;
+        margin-left: -.5em;
+
+    }
+
+}
+
+@media (max-width:425px) {
+
+
+
+
+
+
+
+    .navbar {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        height: 100%;
+    }
+
+    .navbar .list a {
+        font-size: small;
+    }
+
+    .items svg {
+        width: 15px;
+        height: 15px;
+        fill: aliceblue;
+
+    }
+
+    .filter,
+    option {
+        width: 100px;
+        height: 30px;
+        font-size: medium;
+    }
+
+    .menu ion-icon {
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        color: white;
+    }
+
+    .header img {
+        width: 4rem;
+        top: 3.5rem;
+        right: 1rem;
+    }
+
+    .mains {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .box {
+        width: 120px
+    }
+
+    .box svg {
+        width: rem;
+        height: 4rem;
+    }
+
+    .seemore svg {
+        color: #097859;
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        width: fit-content;
+        overflow: hidden;
+        cursor: pointer;
+        margin: auto;
+        text-decoration: none;
+        right: 10px;
+        bottom: 5px;
+        color: #000000;
+        text-transform: capitalize;
+        fill: rgb(0, 0, 0);
+    }
+
+    .table-title {
+        width: fit-content;
+        display: flex;
+        gap: 10px;
+
+
+    }
+
+    .tableList {
+        font-size: x-small;
+        width: fit-content;
+        gap: 9px;
+
+    }
+
+    .tableList li a {
+        font-size: small;
+        font-weight: 400;
+    }
+
+    .tableList h1 {
+        font-size: x-small;
+    }
+
+    .for-th {
+        font-size: small;
+        font-weight: 600;
+        gap: 2rem;
+
+
+    }
+
+    .for-tr {
+        font-size: 10px;
+
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+
+
+}
+
+@media (max-width:375px) {
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 50%;
+    }
+
+    .menu-icon {
+        background-color: aqua;
+        width: fit-content;
+    }
+
+    .menu ion-icon {
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        color: white;
+    }
+}
