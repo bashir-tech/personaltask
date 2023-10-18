@@ -2,21 +2,22 @@
 import 'aos/dist/aos.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import prof from '../img/profile.png';
+import { useTask } from '../Contexts/TasksProvider';
+import prof from '../img/drak.png';
 import Chart from './Chart';
 import DoneTask from './Donetask';
 import Header from './Header';
 import InProgressTask from './InProgressTask';
 import RemainTask from './RemainTask';
 
-export default function Dashboard({ task, setTask, isOpen, setOpen, order, setOrder }) {
+export default function Dashboard() {
 
 
 
     return (
         <div className="container">
 
-            <Home task={task} setTask={setTask} isOpen={isOpen} setOpen={setOpen} order={order} setOrder={setOrder} />
+            <Home />
 
 
 
@@ -25,18 +26,19 @@ export default function Dashboard({ task, setTask, isOpen, setOpen, order, setOr
     )
 }
 
-function Home({ task, setTask, isOpen, setOpen, order, setOrder }) {
-
+function Home() {
+    const { task } = useTask();
     return (
 
         <>
-            <Header isOpen={isOpen} setOpen={setOpen} profileImageSrc={prof} color='green' filterOptions={["name", "duration"]}
-                order={order} setOrder={setOrder} />
+            <Header profileImageSrc={prof} color='green' filterOptions={["name", "duration"]}
+            />
             <Chart task={task} />
 
 
-            <TaskSummary task={task} />
-            <Table task={task} setTask={setTask} order={order} setOrder={setOrder} />
+            <TaskSummary />
+            <Table />
+
 
         </>
 
@@ -46,9 +48,8 @@ function Home({ task, setTask, isOpen, setOpen, order, setOrder }) {
 
 
 
-function TaskSummary({ task, setTask }) {
-
-
+function TaskSummary() {
+    const { task, setTask } = useTask();
     const done = task.filter((t) => t.state === "Done Tasks");
     const inProgress = task.filter((t) => t.state === "In Progress Tasks");
     const Remaining = task.filter((t) => t.state === "Remaining Tasks");
@@ -76,18 +77,18 @@ function TaskSummary({ task, setTask }) {
     );
 }
 
-function Table({ task, setTask, order, setOrder }) {
+function Table() {
 
     return (
 
 
         <div className='table'>
 
-            <Hero task={task} />
+            <Hero />
 
-            <DoneTask task={task} setTask={setTask} order={order} setOrder={setOrder} />
-            <InProgressTask task={task} setTask={setTask} order={order} setOrder={setOrder} />
-            <RemainTask task={task} setTask={setTask} order={order} setOrder={setOrder} />
+            <DoneTask />
+            <InProgressTask />
+            <RemainTask />
 
 
 
@@ -103,7 +104,8 @@ function Table({ task, setTask, order, setOrder }) {
 
 
 
-function Hero({ task }) {
+function Hero() {
+    const { task } = useTask();
     return (
         <>
             {task.length > 0 ? <div className='table-title'>

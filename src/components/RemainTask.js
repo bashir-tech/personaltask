@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-function RemainTask({ task, setTask, order }) {
+import { useTask } from '../Contexts/TasksProvider';
+function RemainTask() {
+    const { task, setTask, order } = useTask();
     const remainingTasks = task.filter((t) => t.state === "Remaining Tasks");
 
     const [currenPage, SetCurrentPage] = useState(1);
     const pages = 3
+
     let OrderedTasks;
     if (order === "name") {
         OrderedTasks = remainingTasks.slice()
@@ -17,6 +20,8 @@ function RemainTask({ task, setTask, order }) {
         OrderedTasks = remainingTasks.slice();
     }
     const LastPage = currenPage * pages;
+
+
     const firtPage = LastPage - pages;
     const currentTask = remainingTasks.slice(firtPage, LastPage);
     const TotalPages = Math.ceil(remainingTasks.length / pages)
@@ -43,7 +48,7 @@ function RemainTask({ task, setTask, order }) {
     return (
         <>
             {
-                remainingTasks.length > 0 && (
+                OrderedTasks.length > 0 && (
                     <table>
                         <thead>
 
@@ -66,8 +71,8 @@ function RemainTask({ task, setTask, order }) {
                                     <td>{doneTask.name}</td>
                                     <td className='state'>{doneTask.state}</td>
                                     <td>{doneTask.due_date}</td>
-                                    <td className='priority'>{doneTask.priority}</td>
-                                    <td>{doneTask.duration}</td>
+                                    <td style={{ color: doneTask.priority === "High" ? "red" : doneTask.priority === "Medium" ? "green" : "yellow" }}>{doneTask.priority}</td>
+                                    <td> {doneTask.duration > 1 ? `${ doneTask.duration } Days` : `${ doneTask.duration } Day`} </td>
 
                                     <td className='btn'>
                                         <button onClick={() => UpdastTask(doneTask.id)} style={{ color: "#CA4A4A" }}>
@@ -98,7 +103,7 @@ function RemainTask({ task, setTask, order }) {
                         {Array.from({ length: TotalPages }, (_, index) => {
                             return (
                                 <span
-                                    className={`num ${ currenPage === index + 1 ? "active" : "" }`}
+                                    className={`num ${ currenPage === index + 1 ? "activee" : "" }`}
                                     onClick={() => SetCurrentPage(index + 1)}
                                     key={index}
                                 >

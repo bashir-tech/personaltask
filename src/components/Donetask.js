@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTask } from "../Contexts/TasksProvider";
 
-function DoneTask({ task, setTask, order }) {
+function DoneTask() {
+    const { task, setTask, order } = useTask();
     const [currenPage, SetCurrentPage] = useState(1);
     const done = task.filter((t) => t.state === "Done Tasks");
 
@@ -16,9 +18,10 @@ function DoneTask({ task, setTask, order }) {
     else {
         OrderedTasks = done.slice()
     }
-    const pages = 5
+    const pages = 3
+
         ;
-    if (pages > OrderedTasks) return OrderedTasks.length;
+
 
 
     const LastPage = currenPage * pages;
@@ -42,7 +45,7 @@ function DoneTask({ task, setTask, order }) {
 
         <>
             {
-                currentTask.length > 0 &&
+                OrderedTasks.length > 0 &&
                 (
                     <table>
                         <thead>
@@ -66,8 +69,8 @@ function DoneTask({ task, setTask, order }) {
                                     <td>{doneTask.name}</td>
                                     <td className='state'>{doneTask.state}</td>
                                     <td>{doneTask.due_date}</td>
-                                    <td className='priority'>{doneTask.priority}</td>
-                                    <td>{doneTask.duration}</td>
+                                    <td style={{ color: doneTask.priority === "High" ? "red" : doneTask.priority === "Medium" ? "green" : "yellow" }}>{doneTask.priority}</td>
+                                    <td> {doneTask.duration > 1 ? `${ doneTask.duration } Days` : `${ doneTask.duration } Day`} </td>
 
                                     <td className='btn'>
                                         <button onClick={() => (doneTask.id)} style={{ color: "#ffff", textDecoration: "line-through" }}>
@@ -99,7 +102,7 @@ function DoneTask({ task, setTask, order }) {
                         {Array.from({ length: TotalPages }, (_, index) => {
                             return (
                                 <span
-                                    className={`num ${ currenPage === index + 1 ? "active" : "" }`}
+                                    className={`num ${ currenPage === index + 1 ? "activee" : "" }`}
                                     onClick={() => SetCurrentPage(index + 1)}
                                     key={index}
                                 >

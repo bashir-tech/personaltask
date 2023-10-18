@@ -3,6 +3,15 @@
 
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 body {
   width: 100%;
@@ -22,12 +31,13 @@ body {
 
 
 .navbar {
+  position: fixed;
   display: none;
   flex-direction: column;
   justify-content: space-around;
   height: 100vh;
   overflow: hidden;
-  width: 250px;
+  width: 12%;
   background-color: #023829;
   gap: 5rem;
 }
@@ -55,7 +65,7 @@ body {
 .list {
   display: flex;
   flex-direction: column;
-  margin-left: 0;
+  margin-left: 4rem;
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
@@ -80,7 +90,7 @@ body {
 
 }
 
-.items::after {
+.items.active::after {
   content: "";
 
   display: block;
@@ -142,17 +152,17 @@ body {
   flex-grow: 1;
   padding-bottom: 3rem;
   width: fit-content;
+
+
 }
 
 
 
-
-
 .header {
-  width: 100%;
+  width: 85%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: auto;
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -168,11 +178,18 @@ body {
   border-color: #042018;
 }
 
+
+.menu {
+  width: fit-content;
+}
+
 .menu ion-icon {
-  display: none;
   width: 4rem;
+  display: flex;
+
   height: 4rem;
   color: white;
+  z-index: 1000;
 }
 
 .recharts-wrapper {
@@ -461,6 +478,13 @@ tbody td {
 
 }
 
+tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
 tbody tr td {
 
   align-items: center;
@@ -476,6 +500,8 @@ tbody tr td {
 .state {
   color: rgb(232, 110, 110);
 }
+
+
 
 .btn button {
   color: #000000;
@@ -762,7 +788,7 @@ select,
 
 }
 
-.active {
+.activee {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -773,4 +799,20 @@ select,
   padding: 5px;
   box-shadow: rgba(192, 221, 204, 0.25) 0px 2px 5px -1px, rgba(231, 239, 231, 0.3) 0px 1px 3px -1px;
 
+}
+
+
+.active {
+  color: #000000;
+
+  border-bottom: 6px solid rgb(3, 132, 95);
+  margin-top: 7px;
+}
+
+:root {
+  --bk-color: var(--bk-color)
+}
+
+.active {
+  margin-top: 9px;
 }

@@ -1,7 +1,24 @@
 @media (max-width:2560px) {
 
     .navbar {
-        width: 350px;
+        width: 400px;
+        height: 100%;
+        opacity: 0.6;
+
+    }
+
+
+
+    .menu ion-icon {
+
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        color: white;
+        margin-left: 20rem;
+        opacity: 1;
+        z-index: 1000;
+
     }
 }
 
@@ -74,7 +91,10 @@
 
 @media (max-width:1440px) {
 
-
+    .navbar {
+        height: 100%;
+        opacity: 1;
+    }
 
     .headers {
 
@@ -82,15 +102,33 @@
 
     }
 
+    .menu ion-icon {
 
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        color: white;
+        margin-left: 12rem;
+        opacity: 1;
+        z-index: 1000;
 
-    .list {
-        gap: 3rem;
     }
 
 
 
+    .list {
+
+        gap: 3rem;
+    }
+
+
+    .items {
+
+        gap: 1rem;
+    }
+
     .items a {
+
         font-size: 15px;
     }
 
@@ -178,6 +216,12 @@
 }
 
 @media (max-width:1024px) {
+    .navbar {
+        width: 250px;
+        opacity: .5;
+        height: 100%;
+    }
+
     .menu ion-icon {
         display: flex;
         width: 4rem;
@@ -215,8 +259,10 @@
     }
 
     .navbar {
-        width: 150px;
+        width: 220px;
         opacity: .5;
+        height: 100%;
+
     }
 
     .navbar .list {
@@ -357,16 +403,13 @@
 
 
 
-
-
     .navbar {
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-
+        width: 220px;
+        opacity: .5;
         height: 100%;
+        z-index: 1000;
+
+
     }
 
     .navbar .list a {
@@ -392,6 +435,7 @@
         width: 4rem;
         height: 4rem;
         color: white;
+        z-index: 1000;
     }
 
     .header img {
@@ -408,7 +452,7 @@
     }
 
     .box {
-        width: 120px
+        width: 200px
     }
 
     .box svg {
@@ -477,6 +521,15 @@
 }
 
 @media (max-width:375px) {
+    .navbar {
+        width: 220px;
+        opacity: .5;
+        height: 100%;
+        z-index: 1000;
+
+
+    }
+
     .header {
         display: flex;
         align-items: center;
@@ -484,10 +537,67 @@
         width: 50%;
     }
 
-    .menu-icon {
-        background-color: aqua;
-        width: fit-content;
+    .box {
+        width: 300px;
+        height: 150px;
     }
+
+    .summaryContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .box:last-child {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        grid-column: span 2;
+
+    }
+
+
+
+    .menu ion-icon {
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        color: white;
+    }
+}
+
+
+
+@media (max-width:320px) {
+    .navbar {
+        width: 220px;
+        opacity: .5;
+        height: 100%;
+        z-index: 1000;
+
+
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 50%;
+    }
+
+    .box {
+        width: 400px;
+        height: 130px;
+    }
+
+    .summaryContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+
+
 
     .menu ion-icon {
         display: flex;

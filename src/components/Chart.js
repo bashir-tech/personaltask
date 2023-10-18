@@ -22,10 +22,13 @@ export default class Chart extends PureComponent {
     static demoUrl = 'https://codesandbox.io/s/pie-chart-with-customized-label-dlhhj';
 
     render() {
+
         const { task } = this.props;
+        if (!task) return
         const doneTasks = task.filter(task => task.state === 'Done Tasks').length;
         const inProgressTasks = task.filter(task => task.state === 'In Progress Tasks').length;
         const remainingTasks = task.filter(task => task.state === 'Remaining Tasks').length;
+
         const data = [
             { name: 'Done Task', value: doneTasks },
             { name: 'In Progress Tasks', value: inProgressTasks },

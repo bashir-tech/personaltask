@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-function InProgressTasks({ task, setTask, order, setOrder }) {
+import { useTask } from '../Contexts/TasksProvider';
+function InProgressTasks() {
 
-
+    const { task, setTask, order, setOrdre } = useTask();
 
     const inProgress = task.filter((t) => t.state === "In Progress Tasks");
     let OrderedTasks;
@@ -18,6 +19,7 @@ function InProgressTasks({ task, setTask, order, setOrder }) {
     }
     const pages = 3;
     const [currenPage, SetCurrentPage] = useState(1);
+
 
     const LastPage = currenPage * pages;
     const firtPage = LastPage - pages;
@@ -37,7 +39,7 @@ function InProgressTasks({ task, setTask, order, setOrder }) {
     }
     return (
         <>
-            {inProgress.length > 0 && (
+            {OrderedTasks.length > 0 && (
                 <table>
                     <thead>
 
@@ -52,16 +54,17 @@ function InProgressTasks({ task, setTask, order, setOrder }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {currentTask.map((DoneTask, index) => (
+                        {currentTask.map((progress, index) => (
                             <tr className='for-tr' key={index}>
 
-                                <td>{DoneTask.name}</td>
-                                <td className='state'>{DoneTask.state}</td>
-                                <td>{DoneTask.due_date}</td>
-                                <td className='priority'>{DoneTask.priority}</td>
-                                <td>{DoneTask.duration}</td>
+                                <td>{progress.name}</td>
+                                <td className='state'>{progress.state}</td>
+                                <td>{progress.due_date}</td>
+                                <td style={{ color: progress.priority === "High" ? "red" : progress.priority === "Medium" ? "green" : "yellow" }}>{progress.priority}</td>
+
+                                <td> {progress.duration > 1 ? `${ progress.duration } Days` : `${ progress.duration } Day`} </td>
                                 <td className='btn'>
-                                    <button onClick={() => UpdastTask(DoneTask.id)} style={{ color: "yellow" }}>Complete</button>
+                                    <button onClick={() => UpdastTask(progress.id)} style={{ color: "yellow" }}>Complete</button>
                                     <button>✏️</button>
                                     <button>❌</button>
                                 </td>
@@ -85,7 +88,7 @@ function InProgressTasks({ task, setTask, order, setOrder }) {
                         {Array.from({ length: TotalPages }, (_, index) => {
                             return (
                                 <span
-                                    className={`num ${ currenPage === index + 1 ? "active" : "" }`}
+                                    className={`num ${ currenPage === index + 1 ? "activee" : "" }`}
                                     onClick={() => SetCurrentPage(index + 1)}
                                     key={index}
                                 >

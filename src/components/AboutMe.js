@@ -10,8 +10,9 @@ function AboutMe() {
             </span>
             <div className="main">
                 <div className="up">
-                    <button className="card1">
-                        <ion-icon name="logo-instagram"></ion-icon>
+                    <button href="https://www.instagram.com/bash_isse/" className="card1">
+
+                        <ion-icon href="https://www.instagram.com/bash_isse/" name="logo-instagram"></ion-icon>
                     </button>
                     <button className="card2">
                         <ion-icon name="logo-twitter"></ion-icon>

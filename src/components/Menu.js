@@ -1,6 +1,13 @@
 import React from "react";
+import { useTask } from "../Contexts/TasksProvider";
 
-function Menu({ handleClic, isOpen, setOpen }) {
+function Menu() {
+
+    const { task, setTask, order, isOpen, setOpen } = useTask();
+
+    function handleClic() {
+        setOpen(!isOpen);
+    }
     return (
         <>
             <div className="menu">
