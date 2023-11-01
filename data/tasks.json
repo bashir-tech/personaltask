@@ -1,0 +1,44 @@
+{
+  "tasks": [
+    {
+      "id": "2023-11-01T08:19:38.135Z",
+      "name": "java",
+      "priority": "High",
+      "due_date": "2023-11-01 11:20:38",
+      "state": "Done Tasks",
+      "duration": 1
+    },
+    {
+      "id": "2023-11-01T09:22:59.075Z",
+      "name": "Test",
+      "priority": "High",
+      "due_date": "2023-11-01 14:22:59",
+      "state": "Done Tasks",
+      "duration": 2
+    },
+    {
+      "id": "2023-11-01T09:23:44.266Z",
+      "name": "Ödev",
+      "priority": "High",
+      "due_date": "2023-11-01 14:23:44",
+      "state": "Done Tasks",
+      "duration": 2
+    },
+    {
+      "id": "2023-11-01T09:31:31.883Z",
+      "name": "ödev",
+      "priority": "High",
+      "due_date": "2023-11-01 13:31:31",
+      "state": "Done Tasks",
+      "duration": 1
+    },
+    {
+      "id": "2023-11-01T10:59:41.761Z",
+      "name": "test",
+      "priority": "High",
+      "due_date": "2023-11-01 15:59:41",
+      "state": "Done Tasks",
+      "duration": 2
+    }
+  ]
+}

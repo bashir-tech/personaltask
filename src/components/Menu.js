@@ -3,10 +3,10 @@ import { useTask } from "../Contexts/TasksProvider";
 
 function Menu() {
 
-    const { task, setTask, order, isOpen, setOpen } = useTask();
+    const { tasks, isOpen, dispatch } = useTask();
 
     function handleClic() {
-        setOpen(!isOpen);
+        dispatch({ type: "open", payload: !isOpen })
     }
     return (
         <>

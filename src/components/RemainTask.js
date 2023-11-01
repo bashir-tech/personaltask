@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useTask } from '../Contexts/TasksProvider';
 function RemainTask() {
-    const { task, setTask, order } = useTask();
-    const remainingTasks = task.filter((t) => t.state === "Remaining Tasks");
+    const { tasks, dispatch, order, DeleteTask, UpdastTaskState } = useTask();
+    const remainingTasks = tasks.filter((t) => t.state === "Remaining Tasks");
 
     const [currenPage, SetCurrentPage] = useState(1);
     const pages = 3
@@ -25,16 +25,14 @@ function RemainTask() {
     const firtPage = LastPage - pages;
     const currentTask = remainingTasks.slice(firtPage, LastPage);
     const TotalPages = Math.ceil(remainingTasks.length / pages)
-    function UpdastTask(taskid) {
-        setTask((tasks) =>
-            tasks.map((task) =>
-                task.id === taskid ? { ...task, state: 'In Progress Tasks' } : task
-            )
-        );
+    function UpdastTask(id) {
+
+        UpdastTaskState(id)
+        console.log(id)
     }
 
     function Delete(id) {
-        setTask((task) => task.filter((t) => t.id !== id))
+        DeleteTask(id)
     }
     function prev() {
         if (currenPage > 1)
@@ -63,8 +61,8 @@ function RemainTask() {
                             </tr>
                         </thead>
                         <tbody>
-                            {currentTask.map((doneTask) => (
-                                <tr className='for-tr' key={doneTask.id}>
+                            {currentTask.map((doneTask, index) => (
+                                <tr className='for-tr' key={index}>
 
 
 

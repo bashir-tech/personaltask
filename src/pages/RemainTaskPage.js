@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import RemainTask from "../components/RemainTask";
 
-import prof from '../img/profile.png';
+import prof from '../img/drak.png';
 function RemainingTaskPage({ task, setTask, isOpen, setOpen, order, setOrder }) {
     return (
         <main className="maincontainer">

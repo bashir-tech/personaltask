@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useTask } from "../Contexts/TasksProvider";
 
 function DoneTask() {
-    const { task, setTask, order } = useTask();
+    const { tasks, DeleteTask, order } = useTask();
     const [currenPage, SetCurrentPage] = useState(1);
-    const done = task.filter((t) => t.state === "Done Tasks");
+    const done = tasks.filter((t) => t.state === "Done Tasks");
+
 
     let OrderedTasks;
     if (order === "name") {
@@ -29,8 +30,8 @@ function DoneTask() {
     const currentTask = OrderedTasks.slice(firtPage, LastPage);
     const TotalPages = Math.ceil(OrderedTasks.length / pages)
 
-    function del(id) {
-        setTask((tasks) => tasks.filter((task) => task.id !== id))
+    function HandleDeleteTask(id) {
+        DeleteTask(id)
     }
 
     function prev() {
@@ -79,7 +80,7 @@ function DoneTask() {
 
                                         </button >
                                         <button>✏️</button>
-                                        <button style={{ right: "0" }} onClick={() => del(doneTask.id)}>❌</button>
+                                        <button style={{ right: "0" }} onClick={() => HandleDeleteTask(doneTask.id)}>❌</button>
                                     </td>
                                 </tr>
                             ))}

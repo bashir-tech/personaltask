@@ -5,14 +5,14 @@ import DoneTask from "../components/Donetask";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 
-import prof from '../img/profile.png';
-function DoneTaskPage({ task, setTask, isOpen, setOpen, order, setOrder }) {
+import prof from '../img/drak.png';
+function DoneTaskPage() {
     return (
         <main className="maincontainer">
-            <NavBar isOpen={isOpen} setOpen={setOpen} />
+            <NavBar />
             <div className="container">
-                <Header title="Done Tasks" filterOptions={["name", "duration"]} order={order} setOrder={setOrder} profileImageSrc={prof} isOpen={isOpen} setOpen={setOpen} />
-                <DoneTask task={task} setTask={setTask} order={order} setOrder={setOrder} />
+                <Header title="Done Tasks" filterOptions={["name", "duration"]} profileImageSrc={prof} />
+                <DoneTask />
 
 
             </div>

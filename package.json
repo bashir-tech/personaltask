@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
     "chart.js": "^4.4.0",
+    "json-server": "^0.17.4",
     "react": "^18.2.0",
     "react-calendar": "^4.6.0",
     "react-dom": "^18.2.0",
@@ -20,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server --watch  data/tasks.json --port 8000 --delay 500"
   },
   "eslintConfig": {
     "extends": [

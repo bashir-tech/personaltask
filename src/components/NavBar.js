@@ -7,9 +7,9 @@ import AboutMe from './AboutMe';
 
 function NavBar() {
 
-    const { isOpen, setOpen } = useTask();
+    const { isOpen, dispatch, } = useTask();
     function close() {
-        setOpen(false)
+        dispatch({ type: "open", payload: !isOpen })
     }
     return (
 

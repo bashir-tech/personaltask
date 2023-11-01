@@ -1,5 +1,6 @@
 import { useState } from "react";
 import 'react-calendar/dist/Calendar.css';
+import { useNavigate } from "react-router-dom";
 import { useTask } from "../Contexts/TasksProvider";
 import DoneTask from "../components/Donetask";
 import Header from "../components/Header";
@@ -42,55 +43,124 @@ export default AddTaskPage
 
 
 function AddNewTask() {
-    const { task, setTask } = useTask();
+    const { CreateTask } = useTask();
+    const { tasks, setTask } = useTask();
     const [taskname, setTaskName] = useState("");
     const [state, setState] = useState("");
-    const [id, setId] = useState("");
     const [priority, setPriority] = useState("High");
 
     const [duration, setDuration] = useState("");
-    const [show, setshow] = useState(false);
-    function AddTask(task) {
-        setTask((tasks) => [...tasks, task]);
-
-    }
+    const [format, setFormat] = useState("year");
 
 
-    const handleInputChange = (event) => {
-        event.preventDefault();
+
+
+    const formattedDueDate = () => {
         const currentDate = new Date();
+        const dueDate = new Date(currentDate);
+
+        switch (format) {
+            case "year":
+                dueDate.setFullYear(currentDate.getFullYear() + duration);
+                break;
+            case "month":
+                dueDate.setMonth(currentDate.getMonth() + duration);
+                break;
+            case "day":
+                dueDate.setDate(currentDate.getDate() + duration);
+                break;
+            case "hour":
+                dueDate.setTime(currentDate.getTime() + duration * 3600000); // Add 1 hour
+                break;
+            case "minute":
+                dueDate.setMinutes(currentDate.getMinutes() + duration);
+                break;
+            default:
+                break;
+        }
+
+        const year = dueDate.getFullYear().toString(); // Get last 2 digits of the year
+        const month = (dueDate.getMonth() + 1).toString().padStart(2, '0'); // Get the month and pad with leading zero if necessary
+        const day = dueDate.getDate().toString().padStart(2, '0'); // Get the day and pad with leading zero if necessary
+        const hour = dueDate.getHours().toString().padStart(2, '0'); // Get the hour and pad with leading zero if necessary
+        const minute = dueDate.getMinutes().toString().padStart(2, '0'); // Get the minute and pad with leading zero if necessary
+        const second = dueDate.getSeconds().toString().padStart(2, '0'); // Get the second and pad with leading zero if necessary
+
+        return `${ year }-${ month }-${ day } ${ hour }:${ minute }:${ second }`;
+    };
+
+
+
+
+
+    // const formattedDueDate = () => {
+    //     const currentDate = new Date();
+    //     const dueDate = new Date(currentDate);
+
+    //     switch (format) {
+    //         case "year":
+    //             dueDate.setFullYear(currentDate.getFullYear() + Number(duration)).toLocaleString();
+    //             break;
+    //         case "month":
+    //             dueDate.setMonth(currentDate.getMonth() + Number(duration));
+    //             break;
+    //         case "day":
+    //             dueDate.setDate(currentDate.getDate() + Number(duration));
+    //             break;
+    //         case "hour":
+    //             dueDate.setTime(currentDate.getTime() + Number(duration) * 60 * 60 * 1000);
+    //             break;
+    //         case "minute":
+    //             dueDate.setMinutes(currentDate.getMinutes() + Number(duration));
+    //             break;
+    //         default:
+    //             break;
+    //     }
+
+
+
+
+    //     return dueDate.toLocaleTimeString(undefined, {
+    //         year: format === "year" ? "numeric" : undefined,
+    //         month: format === "month" ? "long" : undefined,
+    //         day: format === "day" ? "numeric" : undefined,
+    //         hour: format === "hour" ? "numeric" : undefined,
+    //         minute: format === "minute" ? "numeric" : undefined,
+    //         second: format === "second" ? "numeric" : undefined,
+
+    //     });
+    // };
+
+
+
+    const navigate = useNavigate();
+
+    const handleInputChange = async (event) => {
+        event.preventDefault();
+
+
         const newTask = {
 
-            id: task.length + 1,
+            id: new Date(),
             name: taskname,
             priority: priority,
-            due_date: new Date(currentDate.getTime() + duration * 24 * 60 * 60 * 1000).toLocaleString(undefined, {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "numeric",
-                minute: "numeric",
-                second: "numeric",
-
-            }),
+            due_date: formattedDueDate(),
 
             state: state,
             duration: duration
 
         };
         if (!taskname || !priority || !state || !duration) return;
-        AddTask(newTask);
-        setshow(false)
+        await CreateTask(newTask)
+        navigate("/")
+
     };
 
 
     return (
         <>
             <form className="form" onSubmit={handleInputChange}>
-                <div className="form-item">
-                    <label>ID</label>
-                    <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-                </div>
+
                 <div className="form-item">
                     <label>Task</label>
                     <input type="text" value={taskname} onChange={(e) => setTaskName(e.target.value)} />
@@ -107,21 +177,9 @@ function AddNewTask() {
                 <div className="form-item">
                     <label>due_date</label>
                     <input type="text"
-                        title="hii"
 
                         value={
-                            duration
-                                ? new Date(new Date().getTime() + duration * 24 * 60 * 60 * 1000)
-                                    .toLocaleString(undefined, {
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric",
-                                        hour: "numeric",
-                                        minute: "numeric",
-                                        second: "numeric",
-                                        timeZoneName: "short", // Specify the timeZoneName option
-                                    })
-                                : ""
+                            formattedDueDate()
                         }
                         readOnly
                     />
@@ -145,7 +203,17 @@ function AddNewTask() {
                         onChange={(e) => setDuration(Number(e.target.value))}
                     />
                 </div>
+                <div className="form-item">
 
+                    <label>format</label>
+                    <select value={format} onChange={(e) => setFormat(e.target.value)}>
+                        <option>year</option>
+                        <option>month</option>
+                        <option>day</option>
+                        <option>hour</option>
+                        <option>minute</option>
+                    </select>
+                </div>
                 <div className="centered-form-item">
                     <button className="btn-submit">Submit</button>
                 </div>
@@ -158,9 +226,9 @@ function Alltask({ task, setTask }) {
 
     return (
         <>
-            <DoneTask task={task} setTask={setTask} />
-            <InProgressTasks task={task} setTask={setTask} />
-            <RemainTask task={task} setTask={setTask} />
+            <DoneTask />
+            <InProgressTasks />
+            <RemainTask />
 
 
         </>

@@ -9,6 +9,7 @@ import DoneTask from './Donetask';
 import Header from './Header';
 import InProgressTask from './InProgressTask';
 import RemainTask from './RemainTask';
+import Spinner from './Spinner';
 
 export default function Dashboard() {
 
@@ -27,7 +28,7 @@ export default function Dashboard() {
 }
 
 function Home() {
-    const { task } = useTask();
+    const { task, isLoading } = useTask();
     return (
 
         <>
@@ -49,10 +50,10 @@ function Home() {
 
 
 function TaskSummary() {
-    const { task, setTask } = useTask();
-    const done = task.filter((t) => t.state === "Done Tasks");
-    const inProgress = task.filter((t) => t.state === "In Progress Tasks");
-    const Remaining = task.filter((t) => t.state === "Remaining Tasks");
+    const { tasks, setTask, isLoading } = useTask();
+    const done = tasks.filter((t) => t.state === "Done Tasks");
+    const inProgress = tasks.filter((t) => t.state === "In Progress Tasks");
+    const Remaining = tasks.filter((t) => t.state === "Remaining Tasks");
 
     const categories = [
         {
@@ -62,6 +63,8 @@ function TaskSummary() {
         { category: "Remaining Tasks", tasks: Remaining, className: "box remain", route: "/remaintask", icon: <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M424-320q0-81 14.5-116.5T500-514q41-36 62.5-62.5T584-637q0-41-27.5-68T480-732q-51 0-77.5 31T365-638l-103-44q21-64 77-111t141-47q105 0 161.5 58.5T698-641q0 50-21.5 85.5T609-475q-49 47-59.5 71.5T539-320H424Zm56 240q-33 0-56.5-23.5T400-160q0-33 23.5-56.5T480-240q33 0 56.5 23.5T560-160q0 33-23.5 56.5T480-80Z" /></svg> },
     ];
 
+    if (isLoading)
+        return <Spinner />
     return (
         <div className="summaryContainer">
             {categories.map((category) => (
@@ -105,10 +108,10 @@ function Table() {
 
 
 function Hero() {
-    const { task } = useTask();
+    const { tasks } = useTask();
     return (
         <>
-            {task.length > 0 ? <div className='table-title'>
+            {tasks.length > 0 ? <div className='table-title'>
                 <thead className="tableList">
                     <h1>All Tasks</h1>
                     <li>
