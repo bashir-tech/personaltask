@@ -3,16 +3,15 @@ import NavBar from "../components/NavBar";
 import RemainTask from "../components/RemainTask";
 
 import prof from '../img/drak.png';
-function RemainingTaskPage({ task, setTask, isOpen, setOpen, order, setOrder }) {
+function RemainingTaskPage() {
     return (
         <main className="maincontainer">
-            <NavBar isOpen={isOpen} setOpen={setOpen} />
+            <NavBar />
             <div className="container">
                 <Header title="Remaining  Tasks" filterOptions={["name", "duration"]}
-                    order={order}
-                    setOrder={setOrder}
-                    profileImageSrc={prof} color="red" isOpen={isOpen} setOpen={setOpen} />
-                <RemainTask task={task} setTask={setTask} order={order} setOrder={setOrder} />
+
+                    profileImageSrc={prof} color="red" />
+                <RemainTask />
 
 
             </div>

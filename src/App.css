@@ -837,8 +837,8 @@ select,
 }
 
 .spinner {
-  width: 6rem;
-  height: 6rem;
+  width: 60rem;
+  height: 0rem;
   border-radius: 50%;
   background: conic-gradient(#0000 10%, var(--color-light--2));
   -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
@@ -848,5 +848,44 @@ select,
 @keyframes rotate {
   to {
     transform: rotate(1turn);
+  }
+}
+
+.spinnerFullpage {
+  margin: 2.5rem;
+  height: calc(100vh - 5rem);
+  background-color: var(--color-dark--1);
+}
+
+/* another way of spinner */
+
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  /* Customize as needed */
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #007bff;
+  /* Customize the spinner color */
+  border-radius: 50%;
+  width: 40px;
+  /* Customize the spinner size */
+  height: 40px;
+  /* Customize the spinner size */
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

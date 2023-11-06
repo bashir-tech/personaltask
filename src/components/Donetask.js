@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTask } from "../Contexts/TasksProvider";
 
 function DoneTask() {
-    const { tasks, DeleteTask, order } = useTask();
+    const { tasks, DeleteTask, order, isLoading } = useTask();
     const [currenPage, SetCurrentPage] = useState(1);
     const done = tasks.filter((t) => t.state === "Done Tasks");
 
@@ -80,7 +80,11 @@ function DoneTask() {
 
                                         </button >
                                         <button>✏️</button>
+
+
+
                                         <button style={{ right: "0" }} onClick={() => HandleDeleteTask(doneTask.id)}>❌</button>
+
                                     </td>
                                 </tr>
                             ))}

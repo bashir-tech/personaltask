@@ -1,4 +1,4 @@
-import { createContext, memo, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const taskContext = createContext();
 
@@ -7,6 +7,9 @@ const initialState = {
     isLoading: false,
     isOpen: true,
     error: ""
+
+    ,
+    order: ""
 
 }
 
@@ -23,6 +26,12 @@ function reducer(state, action) {
                 ...state,
                 isOpen: action.payload,
             };
+        case "order":
+            return {
+                ...state,
+                order: action.payload
+            };
+
         case "tasksloading":
             return {
                 ...state,
@@ -38,6 +47,7 @@ function reducer(state, action) {
         case 'update/task':
             return {
                 ...state,
+                isLoading: false,
                 tasks: state.tasks.map(task =>
                     task.id === action.payload
                         ? {
@@ -75,9 +85,9 @@ function reducer(state, action) {
 }
 
 
-const TasksProvider = memo(function TasksProvider({ children }) {
+const TasksProvider = function TasksProvider({ children }) {
 
-    const [{ tasks, isLoading, isOpen, error }, dispatch] = useReducer(reducer, initialState);
+    const [{ tasks, isLoading, isOpen, error, order }, dispatch] = useReducer(reducer, initialState);
     const url = "http://localhost:8000"
     useEffect(function () {
         async function fetchTasks() {
@@ -126,7 +136,7 @@ const TasksProvider = memo(function TasksProvider({ children }) {
             dispatch({ type: "update/task", payload: id }); // Pass taskId instead of payload
 
         } catch (error) {
-            dispatch({ type: "rejected", payload: "API request failed" });
+            dispatch({ type: "rejected", payload: " failed to update" });
         }
     }
     async function CreateTask(newTask) {
@@ -174,6 +184,7 @@ const TasksProvider = memo(function TasksProvider({ children }) {
             dispatch({ type: "rejected", payload: "API request failed" });
         }
     }
+
     return (
         <taskContext.Provider
             value={{
@@ -182,7 +193,7 @@ const TasksProvider = memo(function TasksProvider({ children }) {
                 dispatch,
                 error,
                 CreateTask,
-
+                order,
                 DeleteTask,
                 tasks,
                 UpdastTaskState
@@ -191,7 +202,7 @@ const TasksProvider = memo(function TasksProvider({ children }) {
             {children}
         </taskContext.Provider>
     )
-})
+}
 
 
 

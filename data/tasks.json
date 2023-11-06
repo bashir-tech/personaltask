@@ -1,44 +1,60 @@
 {
   "tasks": [
     {
-      "id": "2023-11-01T08:19:38.135Z",
-      "name": "java",
+      "id": "2023-11-05T13:52:54.762Z",
+      "name": "fghgfhf",
       "priority": "High",
-      "due_date": "2023-11-01 11:20:38",
+      "due_date": "2023-11-07 01:52:54",
+      "state": "Done Tasks",
+      "duration": 33
+    },
+    {
+      "id": "2023-11-05T13:56:01.894Z",
+      "name": "1",
+      "priority": "High",
+      "due_date": "2023-11-05 16:56:01",
       "state": "Done Tasks",
       "duration": 1
     },
     {
-      "id": "2023-11-01T09:22:59.075Z",
-      "name": "Test",
+      "id": "2023-11-05T14:00:24.914Z",
+      "name": "yesterday",
       "priority": "High",
-      "due_date": "2023-11-01 14:22:59",
+      "due_date": "2023-11-05 16:00:24",
       "state": "Done Tasks",
-      "duration": 2
+      "duration": -1
     },
     {
-      "id": "2023-11-01T09:23:44.266Z",
-      "name": "Ödev",
+      "id": "2023-11-05T14:00:57.207Z",
+      "name": "teststs",
       "priority": "High",
-      "due_date": "2023-11-01 14:23:44",
-      "state": "Done Tasks",
-      "duration": 2
-    },
-    {
-      "id": "2023-11-01T09:31:31.883Z",
-      "name": "ödev",
-      "priority": "High",
-      "due_date": "2023-11-01 13:31:31",
+      "due_date": "2023-11-05 18:00:57",
       "state": "Done Tasks",
       "duration": 1
     },
     {
-      "id": "2023-11-01T10:59:41.761Z",
-      "name": "test",
+      "id": "2023-11-06T11:31:01.914Z",
+      "name": "bulanık",
       "priority": "High",
-      "due_date": "2023-11-01 15:59:41",
-      "state": "Done Tasks",
+      "due_date": "2023-11-06 17:31:01",
+      "state": "In Progress Tasks",
+      "duration": 3
+    },
+    {
+      "id": "2023-11-06T16:13:37.012Z",
+      "name": "yemek",
+      "priority": "High",
+      "due_date": "2023-11-06 21:13:37",
+      "state": "Remaining Tasks",
       "duration": 2
+    },
+    {
+      "id": "2023-11-06T16:21:52.439Z",
+      "name": "caanjeelo",
+      "priority": "High",
+      "due_date": "2023-11-06 20:21:52",
+      "state": "Done Tasks",
+      "duration": 1
     }
   ]
 }

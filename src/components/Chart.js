@@ -23,11 +23,11 @@ export default class Chart extends PureComponent {
 
     render() {
 
-        const { task } = this.props;
-        if (!task) return
-        const doneTasks = task.filter(task => task.state === 'Done Tasks').length;
-        const inProgressTasks = task.filter(task => task.state === 'In Progress Tasks').length;
-        const remainingTasks = task.filter(task => task.state === 'Remaining Tasks').length;
+        const { tasks } = this.props;
+        if (!tasks) return
+        const doneTasks = tasks.filter(task => task.state === 'Done Tasks').length;
+        const inProgressTasks = tasks.filter(task => task.state === 'In Progress Tasks').length;
+        const remainingTasks = tasks.filter(task => task.state === 'Remaining Tasks').length;
 
         const data = [
             { name: 'Done Task', value: doneTasks },

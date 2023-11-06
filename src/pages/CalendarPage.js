@@ -31,7 +31,7 @@ function Calendar() {
     const [countdowns, setCountdowns] = useState({});
     const { tasks, DeleteTask, UpdastTaskState } = useTask();
     const upcomingProgress = tasks.filter((t) => t.state === "In Progress Tasks");
-    const upcoming = upcomingProgress.filter((t) => t.duration <= 3);
+    const upcoming = upcomingProgress.filter((t) => t.duration <= 1);
 
 
     useEffect(() => {
@@ -76,6 +76,8 @@ function Calendar() {
         const seconds = timeInSeconds % 60;
         return `${ hours < 9 ? `0 ${ hours }` : hours } : ${ minutes } : ${ seconds } `;
     }
+
+
 
 
     function del(id) {

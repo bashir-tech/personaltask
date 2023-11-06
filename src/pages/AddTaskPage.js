@@ -9,7 +9,7 @@ import NavBar from "../components/NavBar";
 import RemainTask from "../components/RemainTask";
 import prof from '../img/profile.png';
 
-function AddTaskPage({ task, setTask, isOpen, setOpen }) {
+function AddTaskPage() {
 
     const StyleImage = {
         position: "absolute",
@@ -20,14 +20,14 @@ function AddTaskPage({ task, setTask, isOpen, setOpen }) {
 
     return (
         <div className='maincontainer'>
-            <NavBar isOpen={isOpen} setOpen={setOpen} />
+            <NavBar />
 
             <div className="container">
                 {/* <img style={StyleImage} src={prof} alt="prof" /> */}
-                <Header profileImageSrc={prof} filterOptions={["done", "Progress"]} isOpen={isOpen} setOpen={setOpen} showFilter={true} title="Add New Tasks" />
+                <Header profileImageSrc={prof} filterOptions={["done", "Progress"]} showFilter={true} title="Add New Tasks" />
 
-                <AddNewTask task={task} setTask={setTask} />
-                <Alltask task={task} setTask={setTask} />
+                <AddNewTask />
+
 
             </div>
 
@@ -46,11 +46,11 @@ function AddNewTask() {
     const { CreateTask } = useTask();
     const { tasks, setTask } = useTask();
     const [taskname, setTaskName] = useState("");
-    const [state, setState] = useState("");
+    const [state, setState] = useState("Remaining Tasks");
     const [priority, setPriority] = useState("High");
 
     const [duration, setDuration] = useState("");
-    const [format, setFormat] = useState("year");
+    const [format, setFormat] = useState("Year");
 
 
 
@@ -60,7 +60,7 @@ function AddNewTask() {
         const dueDate = new Date(currentDate);
 
         switch (format) {
-            case "year":
+            case "Year":
                 dueDate.setFullYear(currentDate.getFullYear() + duration);
                 break;
             case "month":
@@ -79,57 +79,18 @@ function AddNewTask() {
                 break;
         }
 
-        const year = dueDate.getFullYear().toString(); // Get last 2 digits of the year
-        const month = (dueDate.getMonth() + 1).toString().padStart(2, '0'); // Get the month and pad with leading zero if necessary
-        const day = dueDate.getDate().toString().padStart(2, '0'); // Get the day and pad with leading zero if necessary
-        const hour = dueDate.getHours().toString().padStart(2, '0'); // Get the hour and pad with leading zero if necessary
-        const minute = dueDate.getMinutes().toString().padStart(2, '0'); // Get the minute and pad with leading zero if necessary
-        const second = dueDate.getSeconds().toString().padStart(2, '0'); // Get the second and pad with leading zero if necessary
+        const year = dueDate.getFullYear().toString();
+        const month = (dueDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = dueDate.getDate().toString().padStart(2, '0');
+        const hour = dueDate.getHours().toString().padStart(2, '0');
+        const minute = dueDate.getMinutes().toString().padStart(2, '0');
+        const second = dueDate.getSeconds().toString().padStart(2, '0');
 
         return `${ year }-${ month }-${ day } ${ hour }:${ minute }:${ second }`;
     };
 
 
 
-
-
-    // const formattedDueDate = () => {
-    //     const currentDate = new Date();
-    //     const dueDate = new Date(currentDate);
-
-    //     switch (format) {
-    //         case "year":
-    //             dueDate.setFullYear(currentDate.getFullYear() + Number(duration)).toLocaleString();
-    //             break;
-    //         case "month":
-    //             dueDate.setMonth(currentDate.getMonth() + Number(duration));
-    //             break;
-    //         case "day":
-    //             dueDate.setDate(currentDate.getDate() + Number(duration));
-    //             break;
-    //         case "hour":
-    //             dueDate.setTime(currentDate.getTime() + Number(duration) * 60 * 60 * 1000);
-    //             break;
-    //         case "minute":
-    //             dueDate.setMinutes(currentDate.getMinutes() + Number(duration));
-    //             break;
-    //         default:
-    //             break;
-    //     }
-
-
-
-
-    //     return dueDate.toLocaleTimeString(undefined, {
-    //         year: format === "year" ? "numeric" : undefined,
-    //         month: format === "month" ? "long" : undefined,
-    //         day: format === "day" ? "numeric" : undefined,
-    //         hour: format === "hour" ? "numeric" : undefined,
-    //         minute: format === "minute" ? "numeric" : undefined,
-    //         second: format === "second" ? "numeric" : undefined,
-
-    //     });
-    // };
 
 
 
@@ -198,7 +159,7 @@ function AddNewTask() {
                 <div className="form-item">
                     <label>Duration</label>
                     <input
-                        type="text"
+                        type="Number"
                         value={duration}
                         onChange={(e) => setDuration(Number(e.target.value))}
                     />
@@ -207,7 +168,7 @@ function AddNewTask() {
 
                     <label>format</label>
                     <select value={format} onChange={(e) => setFormat(e.target.value)}>
-                        <option>year</option>
+                        <option>Year</option>
                         <option>month</option>
                         <option>day</option>
                         <option>hour</option>
@@ -222,7 +183,7 @@ function AddNewTask() {
         </>
     )
 }
-function Alltask({ task, setTask }) {
+function Alltask() {
 
     return (
         <>

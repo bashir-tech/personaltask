@@ -3,15 +3,15 @@ import Dashboard from "../components/DashBoard"
 import NavBar from "../components/NavBar"
 
 
-function HomePage({ task, setTask, isOpen, setOpen, order, setOrder }) {
+function HomePage() {
 
     return (
 
         <div className='maincontainer'>
-            <NavBar isOpen={isOpen} setOpen={setOpen} />
+            <NavBar />
 
-            <Dashboard task={task} setTask={setTask} isOpen
-                ={isOpen} setOpen={setOpen} order={order} setOrder={setOrder} />
+            <Dashboard
+            />
 
 
         </div>

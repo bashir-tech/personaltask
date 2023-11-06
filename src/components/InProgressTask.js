@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTask, } from '../Contexts/TasksProvider';
-function InProgressTasks() {
+function InProgressTasks({ format }) {
 
     const { tasks, isLoading, order, UpdastTaskState, DeleteTask } = useTask();
 
@@ -85,8 +85,43 @@ function InProgressTasks() {
         }
 
     })
+    const calcDuration = function (dateString) {
+
+        const date = new Date(dateString)
+        if (isNaN(date.getTime())) {
+            console.log("invalid", dateString)
+            return
+        }
+
+        const calcDays = (date1, date2) => Math.round(Math.abs((date1 - date2) / (1000 * 60 * 60 * 24)));
+        const currentDate = new Date();
+        const days = calcDays(currentDate, date)
+        console.log(days);
+        const hours = Math.round(Math.abs((currentDate - date) / (1000 * 60 * 60)));
 
 
+        if (days < 1) {
+            return `${ hours === 1 ? `${ hours } Hour` : `${ hours } Hours` } `;
+        }
+
+
+
+        else if (days === 7)
+            return "1 Week"
+        else if (days >= 7 && days <= 30) {
+            const week = Math.floor(days / 7);
+            return `${ week } ${ week === 1 ? "Week" : "Weeks" }`
+        }
+        else if (days >= 30 && days <= 365) {
+            const month = Math.floor(days / 30);
+            return `${ month } ${ month === 1 ? "Month" : "Months" }`
+        }
+        else {
+            const year = Math.floor(days / 365);
+            return `${ year } ${ year === 1 ? "Year" : "Years" }`
+        }
+
+    }
 
     return (
         <>
@@ -118,9 +153,10 @@ function InProgressTasks() {
                                 </td>
                                 <td style={{ color: progress.priority === "High" ? "red" : progress.priority === "Medium" ? "green" : "yellow" }}>{progress.priority}</td>
 
-                                <td> {progress.duration > 1 ? `${ progress.duration } Days` : `${ progress.duration } Day`} </td>
+                                <td> {calcDuration(progress.due_date)} </td>
                                 <td className='btn'>
-                                    <button onClick={() => UpdastTask(progress.id)} style={{ color: "yellow" }}>Complete</button>
+                                    {
+                                        <button onClick={() => UpdastTask(progress.id)} style={{ color: "yellow" }}>Complete</button>}
                                     <button>✏️</button>
                                     <button onClick={(e) => {
                                         e.preventDefault();
