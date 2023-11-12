@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import SpinnerFullPage from "../components/SpinnerFullPage";
 
-import prof from '../img/drak.png';
+import prof from '../img/img 1.png';
 function DoneTaskPage() {
     const { isLoading } = useTask();
 

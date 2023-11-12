@@ -9,6 +9,7 @@ import DoneTaskPage from './pages/DoneTaskPage';
 import HomePage from './pages/HomePage';
 import InProgressTaskPage from './pages/InProgressTaskPage';
 import RemainingTaskPage from './pages/RemainTaskPage';
+import FavouritePage from './pages/favouritePage';
 
 function App() {
 
@@ -33,7 +34,10 @@ function App() {
 
 
             />} />
+            <Route path='/favourite' element={<FavouritePage
 
+
+            />} />
           </Routes>
 
         </BrowserRouter>

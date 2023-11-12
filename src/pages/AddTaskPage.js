@@ -7,8 +7,7 @@ import Header from "../components/Header";
 import InProgressTasks from "../components/InProgressTask";
 import NavBar from "../components/NavBar";
 import RemainTask from "../components/RemainTask";
-import prof from '../img/profile.png';
-
+import prof from '../img/img 1.png';
 function AddTaskPage() {
 
     const StyleImage = {
@@ -24,7 +23,7 @@ function AddTaskPage() {
 
             <div className="container">
                 {/* <img style={StyleImage} src={prof} alt="prof" /> */}
-                <Header profileImageSrc={prof} filterOptions={["done", "Progress"]} showFilter={true} title="Add New Tasks" />
+                <Header profileImageSrc={prof} showFilter={false} title="Add New Tasks" />
 
                 <AddNewTask />
 
@@ -113,7 +112,9 @@ function AddNewTask() {
         };
         if (!taskname || !priority || !state || !duration) return;
         await CreateTask(newTask)
-        navigate("/")
+        setDuration("")
+        setTaskName("")
+
 
     };
 

@@ -63,6 +63,11 @@ function reducer(state, action) {
             };
 
 
+        case "setOrder":
+            return {
+                ...state,
+                order: action.payload
+            }
 
 
         case "create/task":

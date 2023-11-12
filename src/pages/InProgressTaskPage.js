@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 
 import InProgressTasks from "../components/InProgressTask";
-import prof from '../img/drak.png';
+import prof from '../img/img 1.png';
 function InProgressTaskPage() {
 
 

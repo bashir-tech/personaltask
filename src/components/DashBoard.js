@@ -3,7 +3,7 @@ import 'aos/dist/aos.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTask } from '../Contexts/TasksProvider';
-import prof from '../img/drak.png';
+import prof from '../img/img 1.png';
 import Chart from './Chart';
 import DoneTask from './Donetask';
 import Header from './Header';
@@ -32,7 +32,7 @@ function Home() {
     return (
 
         <>
-            <Header profileImageSrc={prof} color='green' filterOptions={["name", "duration"]}
+            <Header profileImageSrc={prof} color='green' filterOptions={["Name", "Duration"]}
             />
             <Chart tasks={tasks} />
 

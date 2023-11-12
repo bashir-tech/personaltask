@@ -5,7 +5,7 @@ function Header({ title = "Activity", showFilter = true, filterOptions = ["name"
     profileImageSrc, color = "white", }) {
 
 
-    const { task, setOrder, order } = useTask();
+    const { task, setOrder, order, dispatch } = useTask();
     return (
 
 
@@ -17,7 +17,7 @@ function Header({ title = "Activity", showFilter = true, filterOptions = ["name"
             {showFilter &&
 
 
-                <select className='filters' value={order} onChange={(e) => setOrder(e.target.value)}>
+                <select className='filters' value={order} onChange={(e) => dispatch({ type: "setOrder", payload: e.target.value })}>
                     {filterOptions.map((option, index) => (
                         <option key={index}>{option}</option>
                     ))}

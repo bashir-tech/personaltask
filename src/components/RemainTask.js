@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useTask } from '../Contexts/TasksProvider';
-import SpinnerFullPage from './SpinnerFullPage';
 function RemainTask() {
     const { tasks, dispatch, isLoading, order, DeleteTask, UpdastTaskState } = useTask();
     const remainingTasks = tasks.filter((t) => t.state === "Remaining Tasks");
@@ -74,12 +73,12 @@ function RemainTask() {
                                     <td> {doneTask.duration > 1 ? `${ doneTask.duration } Days` : `${ doneTask.duration } Day`} </td>
 
                                     <td className='btn'>
-                                        {isLoading ? <SpinnerFullPage /> :
-                                            <button onClick={() => UpdastTask(doneTask.id)} style={{ color: "#CA4A4A" }}>
-                                                Start
+
+                                        <button onClick={() => UpdastTask(doneTask.id)} style={{ color: "#CA4A4A" }}>
+                                            Start
 
 
-                                            </button >}
+                                        </button >
                                         <button>✏️</button>
                                         <button style={{ right: "0" }} onClick={() => Delete(doneTask.id)}>❌</button>
                                     </td>

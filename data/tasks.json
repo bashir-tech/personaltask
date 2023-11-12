@@ -17,14 +17,6 @@
       "duration": 1
     },
     {
-      "id": "2023-11-05T14:00:24.914Z",
-      "name": "yesterday",
-      "priority": "High",
-      "due_date": "2023-11-05 16:00:24",
-      "state": "Done Tasks",
-      "duration": -1
-    },
-    {
       "id": "2023-11-05T14:00:57.207Z",
       "name": "teststs",
       "priority": "High",
@@ -45,7 +37,7 @@
       "name": "yemek",
       "priority": "High",
       "due_date": "2023-11-06 21:13:37",
-      "state": "Remaining Tasks",
+      "state": "In Progress Tasks",
       "duration": 2
     },
     {
@@ -55,6 +47,54 @@
       "due_date": "2023-11-06 20:21:52",
       "state": "Done Tasks",
       "duration": 1
+    },
+    {
+      "id": "2023-11-12T10:35:57.046Z",
+      "name": "machine  learning exam",
+      "priority": "High",
+      "due_date": "2023-11-14 13:35:57",
+      "state": "Remaining Tasks",
+      "duration": 2
+    },
+    {
+      "id": "2023-11-12T10:39:36.353Z",
+      "name": "fuzzy logic exam",
+      "priority": "High",
+      "due_date": "2023-11-15 13:39:36",
+      "state": "Remaining Tasks",
+      "duration": 3
+    },
+    {
+      "id": "2023-11-12T10:39:49.543Z",
+      "name": "image processing exam",
+      "priority": "High",
+      "due_date": "2023-11-16 13:39:49",
+      "state": "Remaining Tasks",
+      "duration": 4
+    },
+    {
+      "id": "2023-11-12T10:40:42.942Z",
+      "name": "machine learning  revission",
+      "priority": "High",
+      "due_date": "2023-11-12 16:40:42",
+      "state": "In Progress Tasks",
+      "duration": 3
+    },
+    {
+      "id": "2023-11-12T11:00:54.314Z",
+      "name": "deneme",
+      "priority": "High",
+      "due_date": "2024-10-12 14:00:54",
+      "state": "In Progress Tasks",
+      "duration": 11
+    },
+    {
+      "id": "2023-11-12T11:01:21.652Z",
+      "name": "deneme2",
+      "priority": "High",
+      "due_date": "2024-12-12 14:01:21",
+      "state": "In Progress Tasks",
+      "duration": 13
     }
   ]
 }

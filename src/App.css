@@ -159,6 +159,7 @@ body {
 
 
 .header {
+
   width: 85%;
   display: flex;
   align-items: center;
@@ -178,12 +179,21 @@ body {
   border-color: #042018;
 }
 
+.profile img {
+  width: 73px;
+  height: 73px;
+}
+
 
 .menu {
-  width: fit-content;
+
+  width: 4rem;
+
+  height: 4rem;
 }
 
 .menu ion-icon {
+
   width: 4rem;
   display: flex;
 
