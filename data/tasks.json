@@ -1,22 +1,6 @@
 {
   "tasks": [
     {
-      "id": "2023-11-12T10:39:36.353Z",
-      "name": "fuzzy logic exam",
-      "priority": "High",
-      "due_date": "2023-11-15 13:39:36",
-      "state": "Done Tasks",
-      "duration": 3
-    },
-    {
-      "id": "2023-11-12T10:39:49.543Z",
-      "name": "image processing exam",
-      "priority": "High",
-      "due_date": "2023-11-16 13:39:49",
-      "state": "Remaining Tasks",
-      "duration": 4
-    },
-    {
       "id": "2023-11-12T10:40:42.942Z",
       "name": "machine learning  revission",
       "priority": "High",
@@ -29,7 +13,7 @@
       "name": "cunto",
       "priority": "High",
       "due_date": "2023-11-17 12:01:28",
-      "state": "In Progress Tasks",
+      "state": "Done Tasks",
       "duration": 1
     },
     {
@@ -37,7 +21,7 @@
       "name": "wa",
       "priority": "High",
       "due_date": "2023-11-17 13:14:53",
-      "state": "Remaining Tasks",
+      "state": "Done Tasks",
       "duration": 1
     },
     {
