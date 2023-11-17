@@ -29,9 +29,9 @@ function Calendar() {
 
 
     const [countdowns, setCountdowns] = useState({});
-    const { tasks, DeleteTask, UpdastTaskState } = useTask();
-    const upcomingProgress = tasks.filter((t) => t.state === "In Pogress Tasks" && t.state === "Remaining");
-    const upcoming = upcomingProgress.filter((t) => t.duration <= 1);
+    const { tasks, DeleteTask, UpdastTaskState, formatdate, calcDuration } = useTask();
+    const upcomingProgress = tasks.filter((t) => t.state === "In Progress Tasks");
+    const upcoming = upcomingProgress.filter((t) => t.duration <= 10);
 
 
     useEffect(() => {
@@ -46,7 +46,6 @@ function Calendar() {
         });
         setCountdowns(initialCountdowns);
 
-        // Update gare e countdopwn daqiqad kasta
         const intervalId = setInterval(() => {
             const updatedCountdowns = {};
             upcoming.forEach((task) => {
@@ -64,7 +63,7 @@ function Calendar() {
         return () => {
             clearInterval(intervalId);
         };
-    }, [countdowns]);
+    }, [upcoming, countdowns]);
 
     function formatCountdown(timeInSeconds) {
         if (timeInSeconds <= 0) {
@@ -109,11 +108,11 @@ function Calendar() {
                             </tbody>
                             <td>{task.name}</td>
                             <td className='state'>{task.state}</td>
-                            <td>{task.due_date}</td>
+                            <td>{formatdate(task.due_date)}</td>
                             <td style={{ color: task.priority === "High" ? "red" : task.priority === "Medium" ? "green" : "yellow" }}>
                                 {task.priority}
                             </td>
-                            <td>{task.duration > 1 ? `${ task.duration } Days` : `Today`}</td>
+                            <td>{calcDuration(task.due_date)}</td>
                             <td className='btn'>
                                 <button onClick={() => UpdastTasks(task.id)} style={{ color: "red" }}>
                                     Complete

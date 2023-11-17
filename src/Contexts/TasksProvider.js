@@ -113,7 +113,7 @@ const TasksProvider = function TasksProvider({ children }) {
         fetchTasks();
     }, [])
 
-    const UpdastTaskState = useMemo(async function UpdastTaskState(id) {
+    async function UpdastTaskState(id) {
         dispatch({ type: "loading" });
 
         try {
@@ -125,37 +125,37 @@ const TasksProvider = function TasksProvider({ children }) {
                     : task.state === 'In Progress Tasks'
                         ? 'Done Tasks'
                         : 'Remaining Tasks';
-            const updatedTask = { ...task, state: newTaskState }; // Create an updated task object
+            const updatedTask = { ...task, state: newTaskState };
 
             const res = await fetch(`${ url }/tasks/${ id }`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(updatedTask), // Construct the body with the new state
+                body: JSON.stringify(updatedTask),
 
 
             });
             const data = await res.json();
             console.log(data);
-            dispatch({ type: "update/task", payload: id }); // Pass taskId instead of payload
+            dispatch({ type: "update/task", payload: id });
 
         } catch (error) {
             dispatch({ type: "rejected", payload: " failed to update" });
         }
-    }, [tasks])
+    }
     async function CreateTask(newTask) {
         dispatch({ type: "loading" });
 
         try {
-            // Create an updated task object
+
 
             const res = await fetch(`${ url }/tasks`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(newTask), // Construct the body with the new state
+                body: JSON.stringify(newTask),
 
 
             });
