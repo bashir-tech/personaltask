@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTask } from "../Contexts/TasksProvider";
 
 function DoneTask() {
-    const { tasks, DeleteTask, order, isLoading } = useTask();
+    const { tasks, DeleteTask, order, isLoading, formatdate, calcDuration } = useTask();
     const [currenPage, SetCurrentPage] = useState(1);
     const done = tasks.filter((t) => t.state === "Done Tasks");
 
@@ -69,9 +69,9 @@ function DoneTask() {
 
                                     <td>{doneTask.name}</td>
                                     <td className='state'>{doneTask.state}</td>
-                                    <td>{doneTask.due_date}</td>
+                                    <td>{formatdate(doneTask.due_date)}</td>
                                     <td style={{ color: doneTask.priority === "High" ? "red" : doneTask.priority === "Medium" ? "green" : "yellow" }}>{doneTask.priority}</td>
-                                    <td> {doneTask.duration > 1 ? `${ doneTask.duration } Days` : `${ doneTask.duration } Day`} </td>
+                                    <td> {calcDuration(doneTask.due_date)} </td>
 
                                     <td className='btn'>
                                         <button onClick={() => (doneTask.id)} style={{ color: "#ffff", textDecoration: "line-through" }}>

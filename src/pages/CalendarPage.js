@@ -30,8 +30,8 @@ function Calendar() {
 
     const [countdowns, setCountdowns] = useState({});
     const { tasks, DeleteTask, UpdastTaskState } = useTask();
-    const upcomingProgress = tasks.filter((t) => t.state === "In Progress Tasks");
-    const upcoming = upcomingProgress.filter((t) => t.duration <= 10);
+    const upcomingProgress = tasks.filter((t) => t.state === "In Pogress Tasks" && t.state === "Remaining");
+    const upcoming = upcomingProgress.filter((t) => t.duration <= 1);
 
 
     useEffect(() => {
@@ -64,7 +64,7 @@ function Calendar() {
         return () => {
             clearInterval(intervalId);
         };
-    }, [upcoming, countdowns]);
+    }, [countdowns]);
 
     function formatCountdown(timeInSeconds) {
         if (timeInSeconds <= 0) {

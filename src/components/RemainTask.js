@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTask } from '../Contexts/TasksProvider';
 function RemainTask() {
-    const { tasks, dispatch, isLoading, order, DeleteTask, UpdastTaskState } = useTask();
+    const { tasks, dispatch, isLoading, order, DeleteTask, UpdastTaskState, formatdate, calcDuration } = useTask();
     const remainingTasks = tasks.filter((t) => t.state === "Remaining Tasks");
 
     const [currenPage, SetCurrentPage] = useState(1);
@@ -68,9 +68,9 @@ function RemainTask() {
 
                                     <td>{doneTask.name}</td>
                                     <td className='state'>{doneTask.state}</td>
-                                    <td>{doneTask.due_date}</td>
+                                    <td>{formatdate(doneTask.due_date)}</td>
                                     <td style={{ color: doneTask.priority === "High" ? "red" : doneTask.priority === "Medium" ? "green" : "yellow" }}>{doneTask.priority}</td>
-                                    <td> {doneTask.duration > 1 ? `${ doneTask.duration } Days` : `${ doneTask.duration } Day`} </td>
+                                    <td> {calcDuration(doneTask.due_date)}  </td>
 
                                     <td className='btn'>
 
