@@ -11,14 +11,14 @@ import InProgressTask from './InProgressTask';
 import RemainTask from './RemainTask';
 import SpinnerFullPage from './SpinnerFullPage';
 
-export default function Dashboard() {
+export default function Dashboard({ isOpen, setOpen }) {
 
 
 
     return (
         <div className="container">
 
-            <Home />
+            <Home isOpen={isOpen} setOpen={setOpen} />
 
 
 
@@ -27,12 +27,12 @@ export default function Dashboard() {
     )
 }
 
-function Home() {
+function Home({ isOpen, setOpen }) {
     const { tasks, } = useTask();
     return (
 
         <>
-            <Header profileImageSrc={prof} color='green' filterOptions={["Name", "Duration"]}
+            <Header isOpen={isOpen} setOpen={setOpen} profileImageSrc={prof} color='green' filterOptions={["Name", "Duration"]}
             />
             <Chart tasks={tasks} />
 

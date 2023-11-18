@@ -3,16 +3,16 @@ import { useTask } from "../Contexts/TasksProvider";
 
 function Menu() {
 
-    const { tasks, isOpen, dispatch } = useTask();
-
+    const { tasks, dispatch, Open, setOpen } = useTask();
     function handleClic() {
-        dispatch({ type: "open", payload: !isOpen })
+        // dispatch({ type: "open", payload: !isOpen })
+        setOpen(!Open);
     }
     return (
         <>
             <div className="menu">
                 {
-                    !isOpen ?
+                    !Open ?
 
                         <ion-icon onClick={handleClic} name="menu-outline" role="button"></ion-icon> :
 

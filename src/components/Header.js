@@ -2,7 +2,7 @@ import { useTask } from "../Contexts/TasksProvider";
 import Menu from "./Menu";
 
 function Header({ title = "Activity", showFilter = true, filterOptions = ["name", "id"],
-    profileImageSrc, color = "white", }) {
+    profileImageSrc, color = "white", isOpen, setOpen }) {
 
 
     const { task, setOrder, order, dispatch } = useTask();
@@ -10,7 +10,7 @@ function Header({ title = "Activity", showFilter = true, filterOptions = ["name"
 
 
         <div className="header">
-            <Menu />
+            <Menu isOpen={isOpen} setOpen={setOpen} />
 
 
             <h1 style={{ color: color }}>{title}</h1>

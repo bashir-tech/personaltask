@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useReducer } from "react";
+import { createContext, useContext, useEffect, useMemo, useReducer, useState } from "react";
 
 const taskContext = createContext();
 
@@ -91,6 +91,7 @@ function reducer(state, action) {
 
 
 const TasksProvider = function TasksProvider({ children }) {
+    const [Open, setOpen] = useState(false);
 
     const [{ tasks, isLoading, isOpen, error, order }, dispatch] = useReducer(reducer, initialState);
     const url = "https://tasks-mybc.onrender.com"
@@ -281,9 +282,9 @@ const TasksProvider = function TasksProvider({ children }) {
             tasks,
             UpdastTaskState,
             formatdate,
-            calcDuration
+            calcDuration, setOpen, Open
         }),
-        [isLoading, isOpen, dispatch, error, order, tasks, UpdastTaskState]
+        [isLoading, isOpen, dispatch, error, order, tasks, UpdastTaskState, Open, setOpen]
     );
     return (
         <taskContext.Provider
