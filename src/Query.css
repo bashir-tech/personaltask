@@ -3,9 +3,23 @@
     .navbar {
         width: 270px;
         height: 100%;
-        opacity: 0.6;
+        opacity: 1;
     }
 
+    .container {
+        width: 100%;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+    }
+
+    .menu {
+        margin-left: 3rem;
+    }
 
 
     .navbar .list {
@@ -483,7 +497,7 @@
         display: none;
 
 
-
+        opacity: 1;
     }
 
     .navbar.open {
@@ -626,6 +640,60 @@
     }
 
 
+    .card1 {
+        background-color: aqua;
+        width: 40px;
+        height: 40px;
+    }
+
+    .card2 {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card3 {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card4 {
+        width: 40px;
+        height: 40px;
+
+    }
+
+    .card1 ion-icon {
+        width: 15px;
+        height: 15px;
+        margin-top: 1.2em;
+        margin-left: 1.2em;
+    }
+
+    .card2 ion-icon {
+        width: 15px;
+        height: 15px;
+        margin-top: 1.5em;
+        margin-left: -1.2em;
+
+    }
+
+    .card3 ion-icon {
+        width: 15px;
+        height: 15px;
+        margin-top: 1.2em;
+        margin-left: 1.2em;
+
+    }
+
+    .card4 ion-icon {
+        width: 15px;
+        height: 15px;
+        margin-top: 1.2em;
+        margin-left: -1.2em;
+
+
+    }
+
 
 }
 
@@ -668,6 +736,7 @@
         height: 100%;
 
 
+        opacity: 1;
 
     }
 
@@ -859,6 +928,7 @@
         height: 100%;
         display: none;
 
+        opacity: 1;
 
     }
 
