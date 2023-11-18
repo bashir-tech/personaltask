@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch  data/tasks.json --port 8000 --delay 500"
+    "server": "json-server --watch data/tasks.json --port 8000 "
   },
   "eslintConfig": {
     "extends": [

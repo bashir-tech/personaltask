@@ -93,7 +93,8 @@ function reducer(state, action) {
 const TasksProvider = function TasksProvider({ children }) {
 
     const [{ tasks, isLoading, isOpen, error, order }, dispatch] = useReducer(reducer, initialState);
-    const url = "http://localhost:8000"
+    const url = "https://tasks-mybc.onrender.com"
+
     useEffect(function () {
         async function fetchTasks() {
 
